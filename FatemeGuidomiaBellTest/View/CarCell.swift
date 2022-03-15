@@ -65,7 +65,8 @@ class CarCell: UITableViewCell {
 
     private let prosLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = 5
+        label.autoresizesSubviews = true
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -85,12 +86,26 @@ class CarCell: UITableViewCell {
 
     private let consLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = 5
+        label.autoresizesSubviews = true
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Cons list"
         return label
+    }()
+    
+    private let whiteDivider : UIView = {
+        let divider = UIView()
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.backgroundColor = .white
+        return divider
+    }()
+    private let redDivider : UIView = {
+        let divider = UIView()
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.backgroundColor = .red
+        return divider
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -105,7 +120,7 @@ class CarCell: UITableViewCell {
 
     private func initialize() {
 
-        self.addSubviews(carImageView, carLabel, priceLabel, rateLabel, prosLabelTitle, prosLabel, consLabelTitle, consLabel)
+        self.addSubviews(carImageView, carLabel, priceLabel, rateLabel, prosLabelTitle, prosLabel, consLabelTitle, consLabel, whiteDivider, redDivider)
 
         self.backgroundColor = UIColor(named: "light_gray")
 
@@ -113,9 +128,11 @@ class CarCell: UITableViewCell {
     }
 
     private func applyConstraints(){
-
+        
+        dividersConstraints()
+        
         carImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        carImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        carImageView.topAnchor.constraint(equalTo: self.whiteDivider.bottomAnchor, constant: 20).isActive = true
         carImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         carImageView.heightAnchor.constraint(equalToConstant: 68).isActive = true
 
@@ -141,9 +158,9 @@ class CarCell: UITableViewCell {
         prosLabelTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         prosLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 35).isActive = true
-        prosLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        prosLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
         prosLabel.topAnchor.constraint(equalTo: self.prosLabelTitle.bottomAnchor, constant: 5).isActive = true
-        prosLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        prosLabel.autoresizingMask = [.flexibleHeight]
         
         consLabelTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
         consLabelTitle.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
@@ -151,11 +168,21 @@ class CarCell: UITableViewCell {
         consLabelTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         consLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 35).isActive = true
-        consLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        consLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
         consLabel.topAnchor.constraint(equalTo: self.consLabelTitle.bottomAnchor, constant: 5).isActive = true
-        consLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        consLabel.autoresizingMask = [.flexibleHeight]
+    }
+    
+    func dividersConstraints() {
+        whiteDivider.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        whiteDivider.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        whiteDivider.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
+        whiteDivider.heightAnchor.constraint(equalToConstant: 26).isActive = true
         
-        
+        redDivider.centerXAnchor.constraint(equalTo: whiteDivider.centerXAnchor).isActive = true
+        redDivider.centerYAnchor.constraint(equalTo: whiteDivider.centerYAnchor).isActive = true
+        redDivider.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        redDivider.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true
     }
 
     func configure() {
@@ -166,6 +193,13 @@ class CarCell: UITableViewCell {
         carLabel.text = viewModel.makeAndModel
         priceLabel.text = viewModel.price
         rateLabel.text = viewModel.rating
+        
+        let prosList = viewModel.prosList.filter{ $0.isEmpty == false}
+        prosLabel.attributedText = NSAttributedString().displayProssAndCons(prosList)
+        
+        let consList = viewModel.constList.filter{ $0.isEmpty == false}
+        consLabel.attributedText = NSAttributedString().displayProssAndCons(consList)
+        
     }
 
 }

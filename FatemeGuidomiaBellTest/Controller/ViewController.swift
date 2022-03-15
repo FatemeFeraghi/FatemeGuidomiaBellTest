@@ -12,28 +12,27 @@ private let carCellIdentifier = "CarCell"
 class ViewController: UIViewController {
     
     private let tableView = UITableView()
-
+    
     private let carHeader = CarHeader()
     
     private var cars = [Car]() {
         didSet { tableView.reloadData() }
     }
     
-    
-    var provider: Provider?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        cars = Provider.loadCars() 
+        
+        cars = Provider.loadCars()
+        
         configureUI()
-        navigationItem.title = "GUIDOMIA"
-        navigationController?.navigationBar.barStyle = .black
         
     }
     
     func configureUI() {
-
+        
+        navigationController?.navigationBar.barStyle = .black
+        navigationItem.title = "GUIDOMIA"
+        
         view.addSubview(carHeader)
         carHeader.translatesAutoresizingMaskIntoConstraints = false
         
@@ -56,6 +55,7 @@ class ViewController: UIViewController {
         
         tableView.register(CarCell.self, forCellReuseIdentifier: carCellIdentifier)
         
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
 
@@ -71,9 +71,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: carCellIdentifier, for: indexPath) as! CarCell
         cell.viewModel = CarViewModel(car: cars[indexPath.row])
-        tableView.rowHeight = 200
+        tableView.rowHeight = 320
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
 }
 
 
