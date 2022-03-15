@@ -14,6 +14,5 @@ struct Constants {
     static let lightGray = "light_gray"
     static let darkGray = "dark_gray"
     static let customOrange = "orange"
-    static let lineSpaceOfBullets: CGFloat = 8
     static let bullets: String = "•  "
 }

@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     private let carHeader = CarHeader()
     
+    var expandedIndexPath = IndexPath()
+    
     private var cars = [Car]() {
         didSet { tableView.reloadData() }
     }
@@ -71,10 +73,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: carCellIdentifier, for: indexPath) as! CarCell
         cell.viewModel = CarViewModel(car: cars[indexPath.row])
-        tableView.rowHeight = 320
+        tableView.rowHeight = 340
         return cell
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 200
@@ -84,6 +89,27 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.beginUpdates()
+        
+        if indexPath == expandedIndexPath {
+            expandedIndexPath = IndexPath()
+        } else {
+            expandedIndexPath = indexPath
+        }
+        
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath == expandedIndexPath {
+            return 340
+        }
+        
+        return 130
     }
     
 }

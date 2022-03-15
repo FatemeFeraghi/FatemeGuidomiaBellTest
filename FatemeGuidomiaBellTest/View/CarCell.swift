@@ -15,15 +15,20 @@ class CarCell: UITableViewCell {
         didSet { self.configure() }
     }
     
+    var isListsHidden: Bool {
+        return prosLabelTitle.isHidden && prosLabel.isHidden
+            && consLabelTitle.isHidden && consLabel.isHidden
+    }
+    
     private let carImageView: UIImageView = {
-       let iv = UIImageView()
+        let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "Alpine_roadster")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-
+    
     private let carLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -33,7 +38,7 @@ class CarCell: UITableViewCell {
         label.text = "Car Name"
         return label
     }()
-
+    
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -43,7 +48,7 @@ class CarCell: UITableViewCell {
         label.text = "Car Price"
         return label
     }()
-
+    
     private let rateLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -62,7 +67,7 @@ class CarCell: UITableViewCell {
         label.text = "Pros:"
         return label
     }()
-
+    
     private let prosLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 5
@@ -70,7 +75,6 @@ class CarCell: UITableViewCell {
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Pros list"
         return label
     }()
     
@@ -83,7 +87,7 @@ class CarCell: UITableViewCell {
         label.text = "Cons:"
         return label
     }()
-
+    
     private let consLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 5
@@ -91,7 +95,6 @@ class CarCell: UITableViewCell {
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Cons list"
         return label
     }()
     
@@ -113,20 +116,20 @@ class CarCell: UITableViewCell {
         
         initialize()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func initialize() {
-
+        
         self.addSubviews(carImageView, carLabel, priceLabel, rateLabel, prosLabelTitle, prosLabel, consLabelTitle, consLabel, whiteDivider, redDivider)
-
+        
         self.backgroundColor = UIColor(named: "light_gray")
-
+        
         applyConstraints()
     }
-
+    
     private func applyConstraints(){
         
         dividersConstraints()
@@ -135,44 +138,26 @@ class CarCell: UITableViewCell {
         carImageView.topAnchor.constraint(equalTo: self.whiteDivider.bottomAnchor, constant: 20).isActive = true
         carImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         carImageView.heightAnchor.constraint(equalToConstant: 68).isActive = true
-
+        
         carLabel.leadingAnchor.constraint(equalTo: self.carImageView.trailingAnchor, constant: 10).isActive = true
         carLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
         carLabel.topAnchor.constraint(equalTo: self.carImageView.topAnchor).isActive = true
         carLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
+        
         priceLabel.leadingAnchor.constraint(equalTo: self.carImageView.trailingAnchor, constant: 10).isActive = true
         priceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
         priceLabel.topAnchor.constraint(equalTo: self.carLabel.bottomAnchor, constant: 5).isActive = true
         priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
+        
         rateLabel.leadingAnchor.constraint(equalTo: self.carImageView.trailingAnchor, constant: 10).isActive = true
         rateLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
         rateLabel.topAnchor.constraint(equalTo: self.priceLabel.bottomAnchor, constant: 8).isActive = true
         rateLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
         
-        prosLabelTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
-        prosLabelTitle.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        prosLabelTitle.topAnchor.constraint(equalTo: self.carImageView.bottomAnchor, constant: 5).isActive = true
-        prosLabelTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        addProsAndConsConstraints()
         
-        prosLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 35).isActive = true
-        prosLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
-        prosLabel.topAnchor.constraint(equalTo: self.prosLabelTitle.bottomAnchor, constant: 5).isActive = true
-        prosLabel.autoresizingMask = [.flexibleHeight]
-        
-        consLabelTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
-        consLabelTitle.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        consLabelTitle.topAnchor.constraint(equalTo: self.prosLabel.bottomAnchor, constant: 5).isActive = true
-        consLabelTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        consLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 35).isActive = true
-        consLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
-        consLabel.topAnchor.constraint(equalTo: self.consLabelTitle.bottomAnchor, constant: 5).isActive = true
-        consLabel.autoresizingMask = [.flexibleHeight]
     }
-    
+
     func dividersConstraints() {
         whiteDivider.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
         whiteDivider.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
@@ -184,7 +169,54 @@ class CarCell: UITableViewCell {
         redDivider.heightAnchor.constraint(equalToConstant: 3).isActive = true
         redDivider.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true
     }
-
+    
+    func addProsAndConsConstraints() {
+        prosLabelTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        prosLabelTitle.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        prosLabelTitle.topAnchor.constraint(equalTo: self.carImageView.bottomAnchor, constant: 20).isActive = true
+        prosLabelTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        prosLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 35).isActive = true
+        prosLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
+        prosLabel.topAnchor.constraint(equalTo: self.prosLabelTitle.bottomAnchor, constant: -5).isActive = true
+        prosLabel.autoresizingMask = [.flexibleHeight]
+        
+        consLabelTitle.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        consLabelTitle.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        consLabelTitle.topAnchor.constraint(equalTo: self.prosLabel.bottomAnchor, constant: -5).isActive = true
+        consLabelTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        consLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 35).isActive = true
+        consLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
+        consLabel.topAnchor.constraint(equalTo: self.consLabelTitle.bottomAnchor, constant: -5).isActive = true
+        consLabel.autoresizingMask = [.flexibleHeight]
+    }
+    
+    func showItems() {
+        prosLabelTitle.isHidden = false
+        prosLabel.isHidden = false
+        consLabelTitle.isHidden = false
+        consLabel.isHidden = false
+    }
+    
+    func hideItems() {
+        prosLabelTitle.isHidden = true
+        prosLabel.isHidden = true
+        consLabelTitle.isHidden = true
+        consLabel.isHidden = true
+    }
+    
+    //Handle showing and hiding prosList and consList when a cell is tapped
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if isListsHidden, selected {
+            showItems()
+        } else {
+            hideItems()
+        }
+    }
+    
     func configure() {
         
         guard let viewModel = viewModel else { return }
@@ -194,12 +226,23 @@ class CarCell: UITableViewCell {
         priceLabel.text = viewModel.price
         rateLabel.text = viewModel.rating
         
-        let prosList = viewModel.prosList.filter{ $0.isEmpty == false}
-        prosLabel.attributedText = NSAttributedString().displayProssAndCons(prosList)
+        prosLabelTitle.isHidden = viewModel.car.prosIsHidden()
+        consLabelTitle.isHidden = viewModel.car.consIsHidden()
         
-        let consList = viewModel.constList.filter{ $0.isEmpty == false}
-        consLabel.attributedText = NSAttributedString().displayProssAndCons(consList)
+        if !prosLabelTitle.isHidden {
+            let prosList = viewModel.prosList.filter{ $0.isEmpty == false}
+            prosLabel.attributedText = NSAttributedString().displayProssAndCons(prosList)
+        } else{
+            prosLabelTitle.text = ""
+        }
+        
+        if !consLabelTitle.isHidden {
+            let consList = viewModel.constList.filter{ $0.isEmpty == false}
+            consLabel.attributedText = NSAttributedString().displayProssAndCons(consList)
+        } else {
+            consLabelTitle.text = ""
+        }
         
     }
-
+    
 }

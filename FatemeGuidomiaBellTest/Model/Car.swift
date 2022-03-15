@@ -36,6 +36,14 @@ struct Car: Codable {
         return stars
     }
     
+    func prosIsHidden() -> Bool {
+        return prosList.count == 0
+    }
+    
+    func consIsHidden() -> Bool {
+        return consList.count == 0 
+    }
+    
     func setCarImage() -> UIImage {
         
         switch make {
