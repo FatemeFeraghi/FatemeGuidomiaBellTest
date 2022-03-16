@@ -21,6 +21,8 @@
 		E8A3A2C027DD741C00963E0B /* car_list.json in Resources */ = {isa = PBXBuildFile; fileRef = E8A3A2BF27DD741C00963E0B /* car_list.json */; };
 		E8A3A2C227DD744C00963E0B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A2C127DD744C00963E0B /* Provider.swift */; };
 		E8A3A2F727DEB17600963E0B /* CarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A2F627DEB17600963E0B /* CarHeader.swift */; };
+		E8A3A31D27E1327000963E0B /* FilterPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A31C27E1327000963E0B /* FilterPanel.swift */; };
+		E8A3A31F27E132F800963E0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A31E27E132F800963E0B /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		E8A3A2BF27DD741C00963E0B /* car_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = car_list.json; sourceTree = "<group>"; };
 		E8A3A2C127DD744C00963E0B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		E8A3A2F627DEB17600963E0B /* CarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarHeader.swift; sourceTree = "<group>"; };
+		E8A3A31C27E1327000963E0B /* FilterPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPanel.swift; sourceTree = "<group>"; };
+		E8A3A31E27E132F800963E0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			children = (
 				E8A3A2B327DD631700963E0B /* CarCell.swift */,
 				E8A3A2F627DEB17600963E0B /* CarHeader.swift */,
+				E8A3A31C27E1327000963E0B /* FilterPanel.swift */,
+				E8A3A31E27E132F800963E0B /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,11 +227,13 @@
 			files = (
 				E8A3A29D27DD5A5D00963E0B /* ViewController.swift in Sources */,
 				E8A3A2BB27DD699400963E0B /* CarViewModel.swift in Sources */,
+				E8A3A31D27E1327000963E0B /* FilterPanel.swift in Sources */,
 				E8A3A29927DD5A5D00963E0B /* AppDelegate.swift in Sources */,
 				E8A3A2B227DD5D4000963E0B /* Car.swift in Sources */,
 				E8A3A2C227DD744C00963E0B /* Provider.swift in Sources */,
 				E8A3A2BD27DD6F4F00963E0B /* Extensions.swift in Sources */,
 				E8A3A2B427DD631700963E0B /* CarCell.swift in Sources */,
+				E8A3A31F27E132F800963E0B /* CustomTextField.swift in Sources */,
 				E8A3A2F727DEB17600963E0B /* CarHeader.swift in Sources */,
 				E8A3A29B27DD5A5D00963E0B /* SceneDelegate.swift in Sources */,
 				E8A3A2B927DD64B800963E0B /* Constants.swift in Sources */,

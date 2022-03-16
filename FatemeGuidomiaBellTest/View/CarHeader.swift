@@ -23,7 +23,7 @@ class CarHeader: UIView {
         let label = UILabel()
         label.numberOfLines = 1
         label.textColor = .white
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = .systemFont(ofSize: 32, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Tacoma 2021"
         return label
@@ -65,7 +65,7 @@ class CarHeader: UIView {
         
         tacomaLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         tacomaLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        tacomaLabel.bottomAnchor.constraint(equalTo: self.getYoursLabel.topAnchor, constant: -10).isActive = true
+        tacomaLabel.bottomAnchor.constraint(equalTo: self.getYoursLabel.topAnchor, constant: -5).isActive = true
         tacomaLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         getYoursLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true

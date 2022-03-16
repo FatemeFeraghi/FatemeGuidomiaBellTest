@@ -166,7 +166,7 @@ class CarCell: UITableViewCell {
         
         redDivider.centerXAnchor.constraint(equalTo: whiteDivider.centerXAnchor).isActive = true
         redDivider.centerYAnchor.constraint(equalTo: whiteDivider.centerYAnchor).isActive = true
-        redDivider.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        redDivider.heightAnchor.constraint(equalToConstant: 2).isActive = true
         redDivider.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9).isActive = true
     }
     
