@@ -10,5 +10,3 @@
 <img width="482" alt="Screen Shot 2022-03-17 at 1 00 04 PM" src="https://user-images.githubusercontent.com/74426671/158854159-09db5adf-c3f9-45e1-a4a1-bff0cd984a6f.png">
 
 
-https://user-images.githubusercontent.com/74426671/158853609-867fa113-9117-4c6c-be96-8659fb51c1aa.mov
-
