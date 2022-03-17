@@ -24,7 +24,6 @@ class CarHeader: UIView {
         label.numberOfLines = 1
         label.textColor = .white
         label.font = .systemFont(ofSize: 32, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Tacoma 2021"
         return label
     }()
@@ -34,7 +33,6 @@ class CarHeader: UIView {
         label.numberOfLines = 1
         label.textColor = .white
         label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Get your's now"
         return label
     }()
@@ -50,7 +48,6 @@ class CarHeader: UIView {
 
     private func initialize() {
 
-        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubviews(tacomaImageView,tacomaLabel, getYoursLabel)
 
         applyConstraints()
@@ -63,15 +60,16 @@ class CarHeader: UIView {
         tacomaImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
         tacomaImageView.heightAnchor.constraint(equalTo: self.tacomaImageView.widthAnchor, multiplier: 0.7).isActive = true
         
-        tacomaLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        tacomaLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        tacomaLabel.bottomAnchor.constraint(equalTo: self.getYoursLabel.topAnchor, constant: -5).isActive = true
-        tacomaLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        tacomaLabel.anchor(left: leftAnchor,
+                           bottom: getYoursLabel.topAnchor,
+                           right: rightAnchor, paddingLeft: 20,
+                           paddingBottom: 5, height: 30)
         
-        getYoursLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        getYoursLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        getYoursLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        getYoursLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        getYoursLabel.anchor(left: leftAnchor,
+                             bottom: bottomAnchor,
+                             right: rightAnchor,
+                             paddingLeft: 20, paddingBottom: 20, height: 20)
         
     }
 

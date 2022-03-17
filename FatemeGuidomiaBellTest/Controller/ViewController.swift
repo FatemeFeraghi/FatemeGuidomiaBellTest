@@ -12,8 +12,9 @@ private let carCellIdentifier = "CarCell"
 class ViewController: UIViewController {
     
     private let tableView = UITableView()
-
+    
     private let carHeader = CarHeader()
+    
     private let filterPanel = FilterPanel()
     
     var expandedIndexPath = IndexPath()
@@ -22,13 +23,10 @@ class ViewController: UIViewController {
         didSet { tableView.reloadData() }
     }
     
-    private var filteredItems = [Car]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         cars = Provider.loadCars()
-        
         configureUI()
         
     }
@@ -40,41 +38,42 @@ class ViewController: UIViewController {
         
         navigationItem.title = "GUIDOMIA"
         
-        view.addSubview(carHeader)
-        carHeader.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubviews(carHeader, tableView, filterPanel)
         
-        carHeader.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        carHeader.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        carHeader.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        carHeader.heightAnchor.constraint(equalToConstant: 280).isActive = true
+        carHeader.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                         left: view.safeAreaLayoutGuide.leftAnchor,
+                         right: view.safeAreaLayoutGuide.rightAnchor, height: 280)
         
+        filterPanel.anchor(top: carHeader.bottomAnchor,
+                           left: view.safeAreaLayoutGuide.leftAnchor,
+                           right: view.safeAreaLayoutGuide.rightAnchor,
+                           paddingTop: 30, paddingLeft: 20,
+                           paddingRight: -20, height: 150)
         
-        view.addSubviews(filterPanel)
-        filterPanel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        filterPanel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        filterPanel.topAnchor.constraint(equalTo: carHeader.bottomAnchor, constant: 30).isActive = true
-        filterPanel.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         filterPanel.layer.cornerRadius = 10
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        view.addSubview(tableView)
         tableView.separatorStyle = .none
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: filterPanel.bottomAnchor, constant: 10).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        filterPanel.anchor(top: carHeader.bottomAnchor,
+                           left: view.safeAreaLayoutGuide.leftAnchor,
+                           right: view.safeAreaLayoutGuide.rightAnchor,
+                           paddingTop: 30, paddingLeft: 20,
+                           paddingRight: 20, height: 150)
+        
+        
+        tableView.anchor(top: filterPanel.bottomAnchor,
+                         left: view.safeAreaLayoutGuide.leftAnchor,
+                         bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                         right: view.safeAreaLayoutGuide.rightAnchor,paddingTop: 10)
         
         tableView.register(CarCell.self, forCellReuseIdentifier: carCellIdentifier)
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
     }
-
 }
 
 

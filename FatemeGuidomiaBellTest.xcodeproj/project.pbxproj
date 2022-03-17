@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EA64C19D06CAD707A55683C /* Pods_FatemeGuidomiaBellTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B04FFE6A7142AA54CF3654 /* Pods_FatemeGuidomiaBellTest.framework */; };
 		E8A3A29927DD5A5D00963E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A29827DD5A5D00963E0B /* AppDelegate.swift */; };
 		E8A3A29B27DD5A5D00963E0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A29A27DD5A5D00963E0B /* SceneDelegate.swift */; };
 		E8A3A29D27DD5A5D00963E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A29C27DD5A5D00963E0B /* ViewController.swift */; };
@@ -22,10 +23,12 @@
 		E8A3A2C227DD744C00963E0B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A2C127DD744C00963E0B /* Provider.swift */; };
 		E8A3A2F727DEB17600963E0B /* CarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A2F627DEB17600963E0B /* CarHeader.swift */; };
 		E8A3A31D27E1327000963E0B /* FilterPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A31C27E1327000963E0B /* FilterPanel.swift */; };
-		E8A3A31F27E132F800963E0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A31E27E132F800963E0B /* CustomTextField.swift */; };
+		E8A3A32527E3905900963E0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A3A32427E3905900963E0B /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		359A5CF403DCE43024A51119 /* Pods-FatemeGuidomiaBellTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FatemeGuidomiaBellTest.release.xcconfig"; path = "Target Support Files/Pods-FatemeGuidomiaBellTest/Pods-FatemeGuidomiaBellTest.release.xcconfig"; sourceTree = "<group>"; };
+		E50FF2E290B38A968DB0414E /* Pods-FatemeGuidomiaBellTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FatemeGuidomiaBellTest.debug.xcconfig"; path = "Target Support Files/Pods-FatemeGuidomiaBellTest/Pods-FatemeGuidomiaBellTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E8A3A29527DD5A5D00963E0B /* FatemeGuidomiaBellTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FatemeGuidomiaBellTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A3A29827DD5A5D00963E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A3A29A27DD5A5D00963E0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +46,8 @@
 		E8A3A2C127DD744C00963E0B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		E8A3A2F627DEB17600963E0B /* CarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarHeader.swift; sourceTree = "<group>"; };
 		E8A3A31C27E1327000963E0B /* FilterPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPanel.swift; sourceTree = "<group>"; };
-		E8A3A31E27E132F800963E0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		E8A3A32427E3905900963E0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		F1B04FFE6A7142AA54CF3654 /* Pods_FatemeGuidomiaBellTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FatemeGuidomiaBellTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA64C19D06CAD707A55683C /* Pods_FatemeGuidomiaBellTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2AFD41FC0E8C11F91C5659F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1B04FFE6A7142AA54CF3654 /* Pods_FatemeGuidomiaBellTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6D2F0B644C38564D9D155EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E50FF2E290B38A968DB0414E /* Pods-FatemeGuidomiaBellTest.debug.xcconfig */,
+				359A5CF403DCE43024A51119 /* Pods-FatemeGuidomiaBellTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E8A3A28C27DD5A5D00963E0B = {
 			isa = PBXGroup;
 			children = (
 				E8A3A29727DD5A5D00963E0B /* FatemeGuidomiaBellTest */,
 				E8A3A29627DD5A5D00963E0B /* Products */,
+				E6D2F0B644C38564D9D155EE /* Pods */,
+				D2AFD41FC0E8C11F91C5659F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +123,7 @@
 				E8A3A2B327DD631700963E0B /* CarCell.swift */,
 				E8A3A2F627DEB17600963E0B /* CarHeader.swift */,
 				E8A3A31C27E1327000963E0B /* FilterPanel.swift */,
-				E8A3A31E27E132F800963E0B /* CustomTextField.swift */,
+				E8A3A32427E3905900963E0B /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8A3A2A927DD5A5E00963E0B /* Build configuration list for PBXNativeTarget "FatemeGuidomiaBellTest" */;
 			buildPhases = (
+				98B0A892D8B0C5927C2DFBCF /* [CP] Check Pods Manifest.lock */,
 				E8A3A29127DD5A5D00963E0B /* Sources */,
 				E8A3A29227DD5A5D00963E0B /* Frameworks */,
 				E8A3A29327DD5A5D00963E0B /* Resources */,
+				2283D5AEDEC809431BE34C53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,6 +246,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2283D5AEDEC809431BE34C53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FatemeGuidomiaBellTest/Pods-FatemeGuidomiaBellTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FatemeGuidomiaBellTest/Pods-FatemeGuidomiaBellTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FatemeGuidomiaBellTest/Pods-FatemeGuidomiaBellTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98B0A892D8B0C5927C2DFBCF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FatemeGuidomiaBellTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E8A3A29127DD5A5D00963E0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -233,7 +301,7 @@
 				E8A3A2C227DD744C00963E0B /* Provider.swift in Sources */,
 				E8A3A2BD27DD6F4F00963E0B /* Extensions.swift in Sources */,
 				E8A3A2B427DD631700963E0B /* CarCell.swift in Sources */,
-				E8A3A31F27E132F800963E0B /* CustomTextField.swift in Sources */,
+				E8A3A32527E3905900963E0B /* CustomTextField.swift in Sources */,
 				E8A3A2F727DEB17600963E0B /* CarHeader.swift in Sources */,
 				E8A3A29B27DD5A5D00963E0B /* SceneDelegate.swift in Sources */,
 				E8A3A2B927DD64B800963E0B /* Constants.swift in Sources */,
@@ -380,6 +448,7 @@
 		};
 		E8A3A2AA27DD5A5E00963E0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50FF2E290B38A968DB0414E /* Pods-FatemeGuidomiaBellTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -408,6 +477,7 @@
 		};
 		E8A3A2AB27DD5A5E00963E0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 359A5CF403DCE43024A51119 /* Pods-FatemeGuidomiaBellTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

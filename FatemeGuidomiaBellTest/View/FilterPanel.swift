@@ -15,7 +15,6 @@ class FilterPanel : UIView {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.text = "Filters"
         label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -37,35 +36,27 @@ class FilterPanel : UIView {
         super.init(frame: frame)
         initialize()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func initialize() {
-
-        self.translatesAutoresizingMaskIntoConstraints = false
+        
         self.addSubviews(filterLabel, makeTextField, modelTextField)
-
+        
         self.backgroundColor = UIColor(named: Constants.darkGray)
         
         applyConstraints()
     }
     
     private func applyConstraints(){
-        filterLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        filterLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
-        filterLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-//        filterLabel.heightAnchor.constraint(equalToConstant: 280).isActive = true
         
-        makeTextField.leadingAnchor.constraint(equalTo: self.filterLabel.leadingAnchor).isActive = true
-        makeTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        makeTextField.topAnchor.constraint(equalTo: self.filterLabel.bottomAnchor, constant: 10).isActive = true
-//        makeTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        filterLabel.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 20, paddingRight: 20)
         
-        modelTextField.leadingAnchor.constraint(equalTo: self.filterLabel.leadingAnchor).isActive = true
-        modelTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        modelTextField.topAnchor.constraint(equalTo: self.makeTextField.bottomAnchor, constant: 10).isActive = true
-//        modelTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        makeTextField.anchor(top: filterLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 20, paddingRight: 20)
+        
+        modelTextField.anchor(top: makeTextField.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 20, paddingRight: 20)
+        
     }
 }
